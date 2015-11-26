@@ -1,18 +1,26 @@
-function single_element(arr) {
+function single_element(arr){
     var result_final = [];
     var result_temp = [];
+    var hash = {};
     arr.filter(function(item,index){
-        if(index % 2 == 0)
+        if(index % 2 !== 0)
             {
-                result.push(item);
+                result_temp.push(item);
             }
-    }
-    var n = {};
+    });
     result_temp.forEach(function(item){
-        if (!n[typeof(item) + item]) {
-            n[typeof(item) + item] = true;
-            result_final.push(item);
-        })
+            hash[item] = 0;
+    });
+    result_temp.forEach(function(item){
+        hash[item] += 1;
+    });
+    result_temp.forEach(function(item){
+        if(hash[item] === 1)
+            {
+                result_final.push(item);
+            }
+
+    });
     return result_final;
-    }
 }
+
