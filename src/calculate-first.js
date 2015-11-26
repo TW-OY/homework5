@@ -1,26 +1,34 @@
-function single_element(arr){
-    var result_final = [];
-    var result_temp = [];
-    var hash = {};
+function arr_find_odd_NO_elements(arr){
+    var arr_odd_NO_elements = [];
     arr.filter(function(item,index){
         if(index % 2 !== 0)
-            {
-                result_temp.push(item);
-            }
+            arr_odd_NO_elements.push(item);
     });
-    result_temp.forEach(function(item){
-            hash[item] = 0;
+    return arr_odd_NO_elements;
+}
+
+
+function arr_find_no_repeat_elements(arr){
+    var hash = {};
+    arr_no_reapeat_elements = [];
+    arr.forEach(function(item){
+        hash[item] = 0;
     });
-    result_temp.forEach(function(item){
+    arr.forEach(function(item){
         hash[item] += 1;
     });
-    result_temp.forEach(function(item){
+    arr.forEach(function(item){
         if(hash[item] === 1)
-            {
-                result_final.push(item);
-            }
-
+            arr_no_reapeat_elements.push(item);
     });
-    return result_final;
+    return arr_no_reapeat_elements;
+
+}
+
+
+function single_element(arr){
+    var arr_odd_NO_elements = arr_find_odd_NO_elements(arr);
+    var result = arr_find_no_repeat_elements(arr_odd_NO_elements);
+    return result;
 }
 
