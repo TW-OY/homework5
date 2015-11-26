@@ -6,10 +6,18 @@ function sum(arr){
 }
 
 
+function is_odd(number){
+    if(number % 2 === 0)
+        return true;
+    else
+        return false;
+}
+
+
 function arr_find_odd_NO_elements(arr){
     var arr_odd_NO_elements = [];
     arr.filter(function(item,index){
-        if(index % 2 !== 0)
+        if(!is_odd(index))
             arr_odd_NO_elements.push(item);
     });
     return arr_odd_NO_elements;
@@ -17,7 +25,7 @@ function arr_find_odd_NO_elements(arr){
 
 function arr_find_median(arr){
     var median;
-    if(arr.length % 2 !== 0) {
+    if(!is_odd(arr.length)) {
         var median_index = Math.floor(arr.length / 2);
         median = arr[median_index];
     }
